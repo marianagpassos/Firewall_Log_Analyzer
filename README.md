@@ -9,22 +9,31 @@ Developed as a personal project to demonstrate skills in:
 - Unit testing and best practices
 
 ## Features ✨
-Threat Detection
-- ✅ SSH Brute Force - Multiple failed login attempts
-- ✅ Port Scanning - Sequential port scanning
-- ✅ External NetBIOS - Legacy protocol traffic from external IPs
-- ✅ SMB Exploitation - Attempts to access port 445 (EternalBlue, etc.)
-- ✅ ICMP Sweep - Network mapping (reconnaissance phase)
 
+### Threat Detection
+- **SSH Brute Force** – Multiple failed login attempts on port 22.
+- **Port Scanning** – Sequential port scans from a single source.
+- **External NetBIOS** – Legacy protocol traffic from public IPs.
+- **SMB Exploitation** – Attempts to access port 445 (EternalBlue, etc.).
+- **ICMP Sweep** – Network mapping (reconnaissance phase).
 
-Features
-- Structured log parser
-- Temporal analysis with configurable windows
-- Export to CSV
-- Visual HTML reports
-- Log generator for testing
-- Mitigation methodologies (Prevention, Detection, Response)
-- Support for historical log analysis (process any firewall log file)
+### General Features
+- Structured log parser with timestamp normalisation.
+- Temporal analysis with configurable sliding windows.
+- Export incidents to CSV.
+- Visual HTML reports with severity colour coding and mitigation guidance.
+- Realistic log generator for testing.
+- Mitigation methodologies (Prevention, Detection, Response) included per incident.
+- Supports analysis of any historical log file (batch mode).
+
+---
+
+## Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/marianagpassos/Firewall_Log_Analyzer.git
+   cd Firewall_Log_Analyzer
 
 
 # Usage 💻
