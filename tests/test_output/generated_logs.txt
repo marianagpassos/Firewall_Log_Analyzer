@@ -1,0 +1,35 @@
+2026-02-18 09:30:00 | 192.168.1.1 | allow | udp | 192.168.1.100:32677 | 185.130.5.20:50961 | DNS query (normal)
+2026-02-18 09:30:02 | 192.168.1.1 | allow | tcp | 10.0.0.50:15114 | 203.0.113.15:32869 | Normal TCP traffic
+2026-02-18 09:30:04 | 192.168.1.1 | allow | tcp | 192.168.1.10:33910 | 198.51.100.20:443 | HTTPS traffic to internal server
+2026-02-18 09:30:06 | 192.168.1.1 | allow | tcp | 192.168.1.50:59631 | 10.0.0.10:32291 | Normal TCP traffic
+2026-02-18 09:30:08 | 192.168.1.1 | allow | tcp | 10.0.0.20:43589 | 10.0.0.5:80 | HTTP web traffic
+2026-02-18 09:30:10 | 192.168.1.1 | allow | tcp | 10.0.0.6:1662 | 192.168.1.200:80 | HTTP web traffic
+2026-02-18 09:30:12 | 192.168.1.1 | allow | tcp | 192.168.1.200:36155 | 45.33.22.11:54515 | Normal TCP traffic
+2026-02-18 09:30:14 | 192.168.1.1 | allow | tcp | 192.168.1.50:25857 | 10.0.0.50:443 | HTTPS traffic to internal server
+2026-02-18 09:30:15 | 192.168.1.1 | deny | tcp | 203.0.113.10:30330 | 10.0.0.5:22 | Failed password for guest (SSH Brute Force)
+2026-02-18 09:30:16 | 192.168.1.1 | allow | tcp | 192.168.1.10:11499 | 10.0.0.50:80 | HTTP web traffic
+2026-02-18 09:30:16 | 192.168.1.1 | deny | tcp | 203.0.113.10:4532 | 10.0.0.5:22 | Failed password for admin (SSH Brute Force)
+2026-02-18 09:30:17 | 192.168.1.1 | deny | tcp | 203.0.113.10:33293 | 10.0.0.5:22 | Failed password for user (SSH Brute Force)
+2026-02-18 09:30:18 | 192.168.1.1 | allow | udp | 10.0.0.50:15831 | 192.168.1.200:62640 | DNS query (normal)
+2026-02-18 09:30:18 | 192.168.1.1 | deny | tcp | 203.0.113.10:22975 | 10.0.0.5:22 | Failed password for root (SSH Brute Force)
+2026-02-18 09:30:19 | 192.168.1.1 | deny | tcp | 203.0.113.10:14669 | 10.0.0.5:22 | Failed password for guest (SSH Brute Force)
+2026-02-18 09:30:20 | 192.168.1.1 | allow | tcp | 192.168.1.50:20568 | 192.168.1.50:41113 | Normal TCP traffic
+2026-02-18 09:30:22 | 192.168.1.1 | allow | tcp | 10.0.0.6:15374 | 10.0.0.8:58113 | Normal TCP traffic
+2026-02-18 09:30:24 | 192.168.1.1 | allow | tcp | 192.168.1.200:41119 | 10.0.0.7:80 | HTTP web traffic
+2026-02-18 09:30:26 | 192.168.1.1 | allow | tcp | 10.0.0.20:49977 | 10.0.0.8:443 | HTTPS traffic to internal server
+2026-02-18 09:30:30 | 192.168.1.1 | deny | tcp | 203.0.113.10:15097 | 10.0.0.5:22 | Failed password for administrator (SSH Brute Force)
+2026-02-18 09:30:31 | 192.168.1.1 | deny | tcp | 203.0.113.10:57381 | 10.0.0.5:22 | Failed password for administrator (SSH Brute Force)
+2026-02-18 09:30:32 | 192.168.1.1 | deny | tcp | 203.0.113.10:35621 | 10.0.0.5:22 | Failed password for guest (SSH Brute Force)
+2026-02-18 09:31:00 | 192.168.1.1 | deny | tcp | 198.51.100.20:16548 | 10.0.0.6:79 | Port Scan detected: Sequential ports
+2026-02-18 09:31:01 | 192.168.1.1 | deny | tcp | 198.51.100.20:63729 | 10.0.0.6:80 | Port Scan detected: Sequential ports
+2026-02-18 09:31:02 | 192.168.1.1 | deny | tcp | 198.51.100.20:64877 | 10.0.0.6:81 | Port Scan detected: Sequential ports
+2026-02-18 09:31:03 | 192.168.1.1 | deny | tcp | 198.51.100.20:64818 | 10.0.0.6:22 | Port Scan detected: Sequential ports
+2026-02-18 09:31:04 | 192.168.1.1 | deny | tcp | 198.51.100.20:17175 | 10.0.0.6:443 | Port Scan detected: Sequential ports
+2026-02-18 09:31:30 | 192.168.1.1 | deny | udp | 45.33.22.11:11111 | 192.168.1.255:137 | NetBIOS Name Query broadcast - Suspicious external source
+2026-02-18 09:32:00 | 192.168.1.1 | deny | tcp | 185.130.5.10:45000 | 10.0.0.7:445 | Possible SMB exploitation attempt
+2026-02-18 09:32:30 | 192.168.1.1 | deny | icmp | 45.33.22.20:0 | 10.0.0.1:0 | ICMP Sweep detected
+2026-02-18 09:32:31 | 192.168.1.1 | deny | icmp | 45.33.22.20:0 | 10.0.0.2:0 | ICMP Sweep detected
+2026-02-18 09:32:32 | 192.168.1.1 | deny | icmp | 45.33.22.20:0 | 10.0.0.3:0 | ICMP Sweep detected
+2026-02-18 09:32:33 | 192.168.1.1 | deny | icmp | 45.33.22.20:0 | 10.0.0.4:0 | ICMP Sweep detected
+2026-02-18 09:32:34 | 192.168.1.1 | deny | icmp | 45.33.22.20:0 | 10.0.0.5:0 | ICMP Sweep detected
+2026-02-18 09:33:00 | 192.168.1.1 | deny | tcp | 45.33.22.15:40000 | 192.168.1.50:23 | Telnet access attempt - Protocol insecure

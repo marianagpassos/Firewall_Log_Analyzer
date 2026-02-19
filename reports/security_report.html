@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório de Segurança - Firewall Log Analyzer</title>
+    
+        <style>
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                line-height: 1.6;
+                color: #333;
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 20px;
+                background-color: #f5f5f5;
+            }
+            h1 {
+                color: #d32f2f;
+                border-bottom: 3px solid #d32f2f;
+                padding-bottom: 10px;
+            }
+            h2 {
+                color: #1976d2;
+                margin-top: 30px;
+            }
+            .header {
+                background: linear-gradient(135deg, #1e2b4f 0%, #2a3f6e 50%, #c41e3a 100%);
+                color: white;
+                padding: 20px 30px;
+                border-radius: 20px;
+                margin-bottom: 30px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+                position: relative;
+                overflow: hidden;
+            }
+
+            .header-content {
+                display: flex;
+                align-items: center;
+                gap: 30px;
+                position: relative;
+                z-index: 2;
+            }
+
+            .header-logo {
+                background: white;
+                border-radius: 15px;
+                padding: 10px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            }
+
+            .header-logo img {
+                height: 70px;
+                width: auto;
+                display: block;
+            }
+
+            .header-text {
+                flex: 1;
+            }
+
+            .header h1 {
+                margin: 0 0 10px 0;
+                border: none;
+                color: white;
+                font-size: 2.2em;
+                line-height: 1.2;
+            }
+
+            .header-title-main {
+                display: block;
+                font-weight: 300;
+                font-size: 0.8em;
+                opacity: 0.9;
+            }
+
+            .header-title-sub {
+                display: block;
+                font-weight: 700;
+                font-size: 1.2em;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+            }
+
+            .header-meta {
+                display: flex;
+                gap: 20px;
+                margin-top: 15px;
+            }
+
+            .meta-item {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                background: rgba(255,255,255,0.15);
+                padding: 8px 15px;
+                border-radius: 30px;
+                font-size: 0.9em;
+                backdrop-filter: blur(5px);
+                border: 1px solid rgba(255,255,255,0.1);
+                flex-wrap: wrap;
+            }
+
+            .meta-credit {
+                font-size: 0.75em;
+                opacity: 0.8;
+                margin-left: 4px;
+                padding-left: 8px;
+                border-left: 1px solid rgba(255,255,255,0.2);
+            }
+
+            .meta-icon {
+                opacity: 0.9;
+            }
+
+            .header-decoration {
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                pointer-events: none;
+                z-index: 1;
+            }
+
+            .decoration-circle {
+                position: absolute;
+                background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+                border-radius: 50%;
+            }
+
+            .decoration-circle:nth-child(1) {
+                width: 300px;
+                height: 300px;
+                top: -150px;
+                right: -50px;
+            }
+
+            .decoration-circle:nth-child(2) {
+                width: 200px;
+                height: 200px;
+                bottom: -100px;
+                left: 10%;
+                background: radial-gradient(circle, rgba(196,30,58,0.2) 0%, rgba(196,30,58,0) 70%);
+            }
+
+            .decoration-circle:nth-child(3) {
+                width: 150px;
+                height: 150px;
+                top: 20px;
+                left: 40%;
+                background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 70%);
+            }
+            .stats {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 20px;
+                margin-bottom: 30px;
+            }
+            .stat-card {
+                background: white;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                text-align: center;
+            }
+            .stat-number {
+                font-size: 36px;
+                font-weight: bold;
+                color: #1976d2;
+            }
+            .stat-label {
+                color: #666;
+                font-size: 14px;
+                text-transform: uppercase;
+            }
+            .incident {
+                background: white;
+                border-left: 5px solid;
+                margin: 20px 0;
+                padding: 20px;
+                border-radius: 5px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .incident.critical { border-left-color: #d32f2f; }
+            .incident.high { border-left-color: #f57c00; }
+            .incident.medium { border-left-color: #fbc02d; }
+            .incident.low { border-left-color: #388e3c; }
+            .incident-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 15px;
+            }
+            .incident-type {
+                font-size: 18px;
+                font-weight: bold;
+                color: #333;
+            }
+            .incident-time {
+                color: #999;
+                font-size: 14px;
+            }
+            .incident-details {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 15px;
+                margin: 15px 0;
+                padding: 15px;
+                background: #f8f9fa;
+                border-radius: 5px;
+            }
+            .detail-item {
+                margin: 5px 0;
+            }
+            .detail-label {
+                font-weight: bold;
+                color: #555;
+            }
+            .mitigation {
+                margin-top: 15px;
+                padding: 15px;
+                background: #e8f5e8;
+                border-radius: 5px;
+            }
+            .mitigation h4 {
+                margin-top: 0;
+                color: #2e7d32;
+            }
+            .mitigation ul {
+                margin: 5px 0;
+                padding-left: 20px;
+            }
+            .footer {
+                margin-top: 40px;
+                text-align: center;
+                color: #999;
+                font-size: 12px;
+            }
+            .badge {
+                display: inline-block;
+                padding: 3px 8px;
+                border-radius: 3px;
+                font-size: 12px;
+                font-weight: bold;
+                color: white;
+            }
+            .badge.ssh { background: #d32f2f; }
+            .badge.scan { background: #f57c00; }
+            .badge.netbios { background: #7b1fa2; }
+            .badge.smb { background: #0288d1; }
+            .badge.icmp { background: #388e3c; }
+        </style>
+        
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <div class="header-logo">
+                <img src="../images/Logo_Log_Analyzer.jpg" alt="Firewall Log Analyzer Logo">
+            </div>
+            <div class="header-text">
+                <h1>
+                    <span class="header-title-main">Relatório de Incidentes</span>
+                    <span class="header-title-sub">de Segurança</span>
+                </h1>
+                <div class="header-meta">
+                    <div class="meta-item">
+                        <svg class="meta-icon" viewBox="0 0 24 24" width="18" height="18">
+                            <path fill="currentColor" d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8zm.5-13H11v6l5.2 3.1.8-1.2-4.5-2.7V7z"/>
+                        </svg>
+                        <span>19/02/2026 · 14:01:59</span>
+                        <span class="meta-credit">desenvolvido por Mariana Passos</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header-decoration">
+            <div class="decoration-circle"></div>
+            <div class="decoration-circle"></div>
+            <div class="decoration-circle"></div>
+        </div>
+    </div>
+    
+    <div class="stats">
+        <div class="stat-card">
+            <div class="stat-number">7</div>
+            <div class="stat-label">Total de Incidentes</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">5</div>
+            <div class="stat-label">Tipos de Ataque</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">7</div>
+            <div class="stat-label">IPs Ofensores</div>
+        </div>
+    </div>
+    
+    <h2> Incidentes Detetados</h2>
+
+    <h3>SSH Brute Force Attack <span class="badge ssh">2</span></h3>
+
+    <div class="incident critical">
+        <div class="incident-header">
+            <span class="incident-type">SSH Brute Force Attack</span>
+            <span class="incident-time">2026-02-15 09:30:12</span>
+        </div>
+        
+        <div class="incident-details">
+            <div class="detail-item">
+                <span class="detail-label"> IP Origem:</span> 203.0.113.10
+            </div>
+            <div class="detail-item">
+                <span class="detail-label"> IP Destino:</span> 10.0.0.5
+            </div>
+            <div class="detail-item">
+                <span class="detail-label"> Protocolo:</span> TCP
+            </div>
+            <div class="detail-item">
+                <span class="detail-label"> Descrição:</span> Múltiplas tentativas de login falhadas na porta SSH (22)
+            </div>
+            <div class="detail-item">
+                <span class="detail-label"> Detalhes:</span> 3 tentativas em 60s
+            </div>
+        </div>
+        
+        <div class="mitigation">
+            <h4> Metodologia de Mitigação</h4>
+            <ul>
+                <li><strong>Prevenção:</strong> Implementar rate-limiting (max 5 tentativas/min), Utilizar autenticação por chaves SSH, Alterar porta padrão do SSH (22 → porta não padrão)</li>
+                <li><strong>Deteção:</strong> Monitorizar logs de autenticação para múltiplas falhas, Alertas baseados em threshold por IP, Correlacionar tentativas no tempo</li>
+                <li><strong>Resposta:</strong> Bloqueio temporário do IP ofensor (firewall), Adicionar IP a lista de reputação interna, Notificar equipa de segurança</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="incident critical">
+        <div class="incident-header">
+            <span class="incident-type">SSH Brute Force Attack</span>
+            <span class="incident-time">2026-02-15 09:30:54</span>
+        </div>
+        
+        <div class="incident-details">
+            <div class="detail-item">
+                <span class="detail-label"> IP Origem:</span> 203.0.113.25
+            </div>
+            <div class="detail-item">
+                <span class="detail-label"> IP Destino:</span> 10.0.0.8
+            </div>
+            <div class="detail-item">
+                <span class="detail-label"> Protocolo:</span> TCP
+            </div>
+            <div class="detail-item">
+                <span class="detail-label"> Descrição:</span> Múltiplas tentativas de login falhadas na porta SSH (22)
+            </div>
+            <div class="detail-item">
+                <span class="detail-label"> Detalhes:</span> 3 tentativas em 60s
+            </div>
+        </div>
+        
+        <div class="mitigation">
+            <h4> Metodologia de Mitigação</h4>
+            <ul>
+                <li><strong>Prevenção:</strong> Implementar rate-limiting (max 5 tentativas/min), Utilizar autenticação por chaves SSH, Alterar porta padrão do SSH (22 → porta não padrão)</li>
+                <li><strong>Deteção:</strong> Monitorizar logs de autenticação para múltiplas falhas, Alertas baseados em threshold por IP, Correlacionar tentativas no tempo</li>
+                <li><strong>Resposta:</strong> Bloqueio temporário do IP ofensor (firewall), Adicionar IP a lista de reputação interna, Notificar equipa de segurança</li>
+            </ul>
+        </div>
+    </div>
+
+    <h3>Port Scanning <span class="badge scan">2</span></h3>
+
+    <div class="incident high">
+        <div class="incident-header">
+            <span class="incident-type">Port Scanning</span>
+            <span class="incident-time">2026-02-15 09:30:26</span>
+        </div>
+        
+        <div class="incident-details">
+            <div class="detail-item">
+                <span class="detail-label"> IP Origem:</span> 198.51.100.20
+            </div>
+            <div class="detail-item">
+                <span class="detail-label"> IP Destino:</span> 10.0.0.6
+            </div>
+            <div class="detail-item">
+                <span class="detail-label"> Protocolo:</span> TCP
+            </div>
+            <div class="detail-item">
+                <span class="detail-label"> Descrição:</span> Varredura de múltiplas portas detectada
+            </div>
+            <div class="detail-item">
+                <span class="detail-label"> Detalhes:</span> 3 portas escaneadas: 79, 80, 81
+            </div>
+        </div>
+        
+        <div class="mitigation">
+            <h4> Metodologia de Mitigação</h4>
+            <ul>
+                <li><strong>Prevenção:</strong> Implementar sistemas de prevenção de intrusão (IPS), Configurar firewalls para detetar varreduras, Utilizar knock ports legítimas</li>
+                <li><strong>Deteção:</strong> Monitorizar conexões a múltiplas portas no mesmo host, Detetar padrões de portas sequenciais, Analisar tráfego SYN sem conclusão de handshake</li>
+                <li><strong>Resposta:</strong> Bloquear IP ofensor temporariamente, Registar evento para análise forense, Aumentar monitorização do host alvo</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="incident high">
+        <div class="incident-header">
+            <span class="incident-type">Port Scanning</span>
+            <span class="incident-time">2026-02-15 09:31:44</span>
+        </div>
+        
+        <div class="incident-details">
+            <div class="detail-item">
+                <span class="detail-label"> IP Origem:</span> 45.33.22.30
+            </div>
+            <div class="detail-item">
+                <span class="detail-label"> IP Destino:</span> 192.168.1.100
+            </div>
+            <div class="detail-item">
+                <span class="detail-label"> Protocolo:</span> TCP
+            </div>
+            <div class="detail-item">
+                <span class="detail-label"> Descrição:</span> Varredura de múltiplas portas detectada
+            </div>
+            <div class="detail-item">
+                <span class="detail-label"> Detalhes:</span> 3 portas escaneadas: 1433, 1434, 3306
+            </div>
+        </div>
+        
+        <div class="mitigation">
+            <h4> Metodologia de Mitigação</h4>
+            <ul>
+                <li><strong>Prevenção:</strong> Implementar sistemas de prevenção de intrusão (IPS), Configurar firewalls para detetar varreduras, Utilizar knock ports legítimas</li>
+                <li><strong>Deteção:</strong> Monitorizar conexões a múltiplas portas no mesmo host, Detetar padrões de portas sequenciais, Analisar tráfego SYN sem conclusão de handshake</li>
+                <li><strong>Resposta:</strong> Bloquear IP ofensor temporariamente, Registar evento para análise forense, Aumentar monitorização do host alvo</li>
+            </ul>
+        </div>
+    </div>
+
+    <h3>Tentativa de Exploração SMB <span class="badge smb">1</span></h3>
+
+    <div class="incident critical">
+        <div class="incident-header">
+            <span class="incident-type">Tentativa de Exploração SMB</span>
+            <span class="incident-time">2026-02-15 09:30:38</span>
+        </div>
+        
+        <div class="incident-details">
+            <div class="detail-item">
+                <span class="detail-label"> IP Origem:</span> 185.130.5.10
+            </div>
+            <div class="detail-item">
+                <span class="detail-label"> IP Destino:</span> 10.0.0.7
+            </div>
+            <div class="detail-item">
+                <span class="detail-label"> Protocolo:</span> TCP
+            </div>
+            <div class="detail-item">
+                <span class="detail-label"> Descrição:</span> Tentativa de acesso à porta SMB (445) de fonte externa
+            </div>
+            <div class="detail-item">
+                <span class="detail-label"> Detalhes:</span> Possível exploração de vulnerabilidades Windows
+            </div>
+        </div>
+        
+        <div class="mitigation">
+            <h4> Metodologia de Mitigação</h4>
+            <ul>
+                <li><strong>Prevenção:</strong> Manter sistemas Windows atualizados (patches), Desativar SMBv1 e versões vulneráveis, Restringir acesso SMB a IPs internos apenas</li>
+                <li><strong>Deteção:</strong> Monitorizar tentativas de conexão SMB externas, Detetar padrões de exploração conhecidos (EternalBlue), Analisar pacotes SMB malformados</li>
+                <li><strong>Resposta:</strong> Bloquear IP de origem imediatamente, Verificar sistemas internos na mesma sub-rede, Verificar se houve execução de código remoto</li>
+            </ul>
+        </div>
+    </div>
+
+    <h3>Tráfego Anómalo - NetBIOS Externo <span class="badge netbios">1</span></h3>
+
+    <div class="incident medium">
+        <div class="incident-header">
+            <span class="incident-type">Tráfego Anómalo - NetBIOS Externo</span>
+            <span class="incident-time">2026-02-15 09:30:46</span>
+        </div>
+        
+        <div class="incident-details">
+            <div class="detail-item">
+                <span class="detail-label"> IP Origem:</span> 45.33.22.11
+            </div>
+            <div class="detail-item">
+                <span class="detail-label"> IP Destino:</span> 192.168.1.255
+            </div>
+            <div class="detail-item">
+                <span class="detail-label"> Protocolo:</span> UDP
+            </div>
+            <div class="detail-item">
+                <span class="detail-label"> Descrição:</span> Tráfego NetBIOS de IP externo
+            </div>
+            <div class="detail-item">
+                <span class="detail-label"> Detalhes:</span> Protocolo legacy exposto na borda da rede
+            </div>
+        </div>
+        
+        <div class="mitigation">
+            <h4> Metodologia de Mitigação</h4>
+            <ul>
+                <li><strong>Prevenção:</strong> Bloquear protocolos legados no perímetro, Implementar segmentação de rede (VLANs), Desativar NetBIOS em interfaces expostas</li>
+                <li><strong>Deteção:</strong> Monitorizar tráfego NetBIOS na borda da rede, Alertas para protocolos não esperados, Analisar fontes externas com destino interno</li>
+                <li><strong>Resposta:</strong> Bloquear tráfego anómalo imediatamente, Verificar comprometimento interno, Analisar se há exfiltração de dados</li>
+            </ul>
+        </div>
+    </div>
+
+    <h3>ICMP Sweep - Mapeamento de Rede <span class="badge icmp">1</span></h3>
+
+    <div class="incident high">
+        <div class="incident-header">
+            <span class="incident-type">ICMP Sweep - Mapeamento de Rede</span>
+            <span class="incident-time">2026-02-15 09:31:10</span>
+        </div>
+        
+        <div class="incident-details">
+            <div class="detail-item">
+                <span class="detail-label"> IP Origem:</span> 45.33.22.20
+            </div>
+            <div class="detail-item">
+                <span class="detail-label"> IP Destino:</span> 10.0.0.1, 10.0.0.2, 10.0.0.3
+            </div>
+            <div class="detail-item">
+                <span class="detail-label"> Protocolo:</span> ICMP
+            </div>
+            <div class="detail-item">
+                <span class="detail-label"> Descrição:</span> Varredura ICMP para mapeamento da rede
+            </div>
+            <div class="detail-item">
+                <span class="detail-label"> Detalhes:</span> Fase de reconhecimento: 3 alvos identificados
+            </div>
+        </div>
+        
+        <div class="mitigation">
+            <h4> Metodologia de Mitigação</h4>
+            <ul>
+                <li><strong>Prevenção:</strong> Limitar tráfego ICMP no perímetro, Implementar rate-limiting para ICMP, Utilizar ferramentas de honeypot</li>
+                <li><strong>Deteção:</strong> Monitorizar picos de tráfego ICMP Echo Request, Detetar padrões sequenciais de IPs, Correlacionar com outras atividades suspeitas</li>
+                <li><strong>Resposta:</strong> Bloquear fonte do sweep, Documentar como fase de reconhecimento, Aumentar monitorização da rede interna</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>Relatório gerado pelo Firewall Log Analyzer - Projeto de Python para Cibersegurança</p>
+        <p>Este relatório contém 7 incidentes detetados durante a análise.</p>
+        <p>Este Projeto foi desenvolvido por Mariana Passos.</p>
+    </div>
+</body>
+</html>
