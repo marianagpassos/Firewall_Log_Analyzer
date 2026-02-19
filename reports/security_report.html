@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Relatório de Segurança - Firewall Log Analyzer</title>
+    <title>Security Report - Firewall Log Analyzer</title>
     
         <style>
             body {
@@ -262,8 +262,8 @@
             </div>
             <div class="header-text">
                 <h1>
-                    <span class="header-title-main">Relatório de Incidentes</span>
-                    <span class="header-title-sub">de Segurança</span>
+                    <span class="header-title-main">Incident Report</span>
+                    <span class="header-title-sub">Security</span>
                 </h1>
                 <div class="header-meta">
                     <div class="meta-item">
@@ -271,7 +271,7 @@
                             <path fill="currentColor" d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8zm.5-13H11v6l5.2 3.1.8-1.2-4.5-2.7V7z"/>
                         </svg>
                         <span>19/02/2026 · 14:01:59</span>
-                        <span class="meta-credit">desenvolvido por Mariana Passos</span>
+                        <span class="meta-credit">developed by Mariana Passos</span>
                     </div>
                 </div>
             </div>
@@ -286,19 +286,19 @@
     <div class="stats">
         <div class="stat-card">
             <div class="stat-number">7</div>
-            <div class="stat-label">Total de Incidentes</div>
+            <div class="stat-label">Total Incidents</div>
         </div>
         <div class="stat-card">
             <div class="stat-number">5</div>
-            <div class="stat-label">Tipos de Ataque</div>
+            <div class="stat-label">Attack Types</div>
         </div>
         <div class="stat-card">
             <div class="stat-number">7</div>
-            <div class="stat-label">IPs Ofensores</div>
+            <div class="stat-label">Offending IPs</div>
         </div>
     </div>
     
-    <h2> Incidentes Detetados</h2>
+    <h2>Detected Incidents</h2>
 
     <h3>SSH Brute Force Attack <span class="badge ssh">2</span></h3>
 
@@ -310,28 +310,28 @@
         
         <div class="incident-details">
             <div class="detail-item">
-                <span class="detail-label"> IP Origem:</span> 203.0.113.10
+                <span class="detail-label"> Source IP:</span> 203.0.113.10
             </div>
             <div class="detail-item">
-                <span class="detail-label"> IP Destino:</span> 10.0.0.5
+                <span class="detail-label"> Destination IP:</span> 10.0.0.5
             </div>
             <div class="detail-item">
-                <span class="detail-label"> Protocolo:</span> TCP
+                <span class="detail-label"> Protocol:</span> TCP
             </div>
             <div class="detail-item">
-                <span class="detail-label"> Descrição:</span> Múltiplas tentativas de login falhadas na porta SSH (22)
+                <span class="detail-label"> Description:</span> Multiple failed login attempts on SSH port (22)
             </div>
             <div class="detail-item">
-                <span class="detail-label"> Detalhes:</span> 3 tentativas em 60s
+                <span class="detail-label"> Details:</span> 3 attempts in 60s
             </div>
         </div>
         
         <div class="mitigation">
-            <h4> Metodologia de Mitigação</h4>
+            <h4>Mitigation Methodology</h4>
             <ul>
-                <li><strong>Prevenção:</strong> Implementar rate-limiting (max 5 tentativas/min), Utilizar autenticação por chaves SSH, Alterar porta padrão do SSH (22 → porta não padrão)</li>
-                <li><strong>Deteção:</strong> Monitorizar logs de autenticação para múltiplas falhas, Alertas baseados em threshold por IP, Correlacionar tentativas no tempo</li>
-                <li><strong>Resposta:</strong> Bloqueio temporário do IP ofensor (firewall), Adicionar IP a lista de reputação interna, Notificar equipa de segurança</li>
+                <li><strong>Prevention:</strong> Implement rate-limiting (max 5 attempts/min), Use SSH key authentication, Change default SSH port (22 → non-standard port)</li>
+                <li><strong>Detection:</strong> Monitor authentication logs for multiple failures, Threshold-based alerts per IP, Correlate attempts over time</li>
+                <li><strong>Response:</strong> Temporary blocking of offending IP (firewall), Add IP to internal reputation list, Notify security team</li>
             </ul>
         </div>
     </div>
@@ -344,28 +344,28 @@
         
         <div class="incident-details">
             <div class="detail-item">
-                <span class="detail-label"> IP Origem:</span> 203.0.113.25
+                <span class="detail-label"> Source IP:</span> 203.0.113.25
             </div>
             <div class="detail-item">
-                <span class="detail-label"> IP Destino:</span> 10.0.0.8
+                <span class="detail-label"> Destination IP:</span> 10.0.0.8
             </div>
             <div class="detail-item">
-                <span class="detail-label"> Protocolo:</span> TCP
+                <span class="detail-label"> Protocol:</span> TCP
             </div>
             <div class="detail-item">
-                <span class="detail-label"> Descrição:</span> Múltiplas tentativas de login falhadas na porta SSH (22)
+                <span class="detail-label"> Description:</span> Multiple failed login attempts on SSH port (22)
             </div>
             <div class="detail-item">
-                <span class="detail-label"> Detalhes:</span> 3 tentativas em 60s
+                <span class="detail-label"> Details:</span> 3 attempts in 60s
             </div>
         </div>
         
         <div class="mitigation">
-            <h4> Metodologia de Mitigação</h4>
+            <h4>Mitigation Methodology</h4>
             <ul>
-                <li><strong>Prevenção:</strong> Implementar rate-limiting (max 5 tentativas/min), Utilizar autenticação por chaves SSH, Alterar porta padrão do SSH (22 → porta não padrão)</li>
-                <li><strong>Deteção:</strong> Monitorizar logs de autenticação para múltiplas falhas, Alertas baseados em threshold por IP, Correlacionar tentativas no tempo</li>
-                <li><strong>Resposta:</strong> Bloqueio temporário do IP ofensor (firewall), Adicionar IP a lista de reputação interna, Notificar equipa de segurança</li>
+                <li><strong>Prevention:</strong> Implement rate-limiting (max 5 attempts/min), Use SSH key authentication, Change default SSH port (22 → non-standard port)</li>
+                <li><strong>Detection:</strong> Monitor authentication logs for multiple failures, Threshold-based alerts per IP, Correlate attempts over time</li>
+                <li><strong>Response:</strong> Temporary blocking of offending IP (firewall), Add IP to internal reputation list, Notify security team</li>
             </ul>
         </div>
     </div>
@@ -380,28 +380,28 @@
         
         <div class="incident-details">
             <div class="detail-item">
-                <span class="detail-label"> IP Origem:</span> 198.51.100.20
+                <span class="detail-label"> Source IP:</span> 198.51.100.20
             </div>
             <div class="detail-item">
-                <span class="detail-label"> IP Destino:</span> 10.0.0.6
+                <span class="detail-label"> Destination IP:</span> 10.0.0.6
             </div>
             <div class="detail-item">
-                <span class="detail-label"> Protocolo:</span> TCP
+                <span class="detail-label"> Protocol:</span> TCP
             </div>
             <div class="detail-item">
-                <span class="detail-label"> Descrição:</span> Varredura de múltiplas portas detectada
+                <span class="detail-label"> Description:</span> Multiple port scan detected
             </div>
             <div class="detail-item">
-                <span class="detail-label"> Detalhes:</span> 3 portas escaneadas: 79, 80, 81
+                <span class="detail-label"> Details:</span> 3 ports scanned: 79, 80, 81
             </div>
         </div>
         
         <div class="mitigation">
-            <h4> Metodologia de Mitigação</h4>
+            <h4>Mitigation Methodology</h4>
             <ul>
-                <li><strong>Prevenção:</strong> Implementar sistemas de prevenção de intrusão (IPS), Configurar firewalls para detetar varreduras, Utilizar knock ports legítimas</li>
-                <li><strong>Deteção:</strong> Monitorizar conexões a múltiplas portas no mesmo host, Detetar padrões de portas sequenciais, Analisar tráfego SYN sem conclusão de handshake</li>
-                <li><strong>Resposta:</strong> Bloquear IP ofensor temporariamente, Registar evento para análise forense, Aumentar monitorização do host alvo</li>
+                <li><strong>Prevention:</strong> Implement intrusion prevention systems (IPS), Configure firewalls to detect scans, Use legitimate port knocking</li>
+                <li><strong>Detection:</strong> Monitor connections to multiple ports on the same host, Detect sequential port patterns, Analyze SYN traffic without handshake completion</li>
+                <li><strong>Response:</strong> Temporarily block offending IP, Log event for forensic analysis, Increase monitoring of target host</li>
             </ul>
         </div>
     </div>
@@ -414,144 +414,144 @@
         
         <div class="incident-details">
             <div class="detail-item">
-                <span class="detail-label"> IP Origem:</span> 45.33.22.30
+                <span class="detail-label"> Source IP:</span> 45.33.22.30
             </div>
             <div class="detail-item">
-                <span class="detail-label"> IP Destino:</span> 192.168.1.100
+                <span class="detail-label"> Destination IP:</span> 192.168.1.100
             </div>
             <div class="detail-item">
-                <span class="detail-label"> Protocolo:</span> TCP
+                <span class="detail-label"> Protocol:</span> TCP
             </div>
             <div class="detail-item">
-                <span class="detail-label"> Descrição:</span> Varredura de múltiplas portas detectada
+                <span class="detail-label"> Description:</span> Multiple port scan detected
             </div>
             <div class="detail-item">
-                <span class="detail-label"> Detalhes:</span> 3 portas escaneadas: 1433, 1434, 3306
+                <span class="detail-label"> Details:</span> 3 ports scanned: 1433, 1434, 3306
             </div>
         </div>
         
         <div class="mitigation">
-            <h4> Metodologia de Mitigação</h4>
+            <h4>Mitigation Methodology</h4>
             <ul>
-                <li><strong>Prevenção:</strong> Implementar sistemas de prevenção de intrusão (IPS), Configurar firewalls para detetar varreduras, Utilizar knock ports legítimas</li>
-                <li><strong>Deteção:</strong> Monitorizar conexões a múltiplas portas no mesmo host, Detetar padrões de portas sequenciais, Analisar tráfego SYN sem conclusão de handshake</li>
-                <li><strong>Resposta:</strong> Bloquear IP ofensor temporariamente, Registar evento para análise forense, Aumentar monitorização do host alvo</li>
+                <li><strong>Prevention:</strong> Implement intrusion prevention systems (IPS), Configure firewalls to detect scans, Use legitimate port knocking</li>
+                <li><strong>Detection:</strong> Monitor connections to multiple ports on the same host, Detect sequential port patterns, Analyze SYN traffic without handshake completion</li>
+                <li><strong>Response:</strong> Temporarily block offending IP, Log event for forensic analysis, Increase monitoring of target host</li>
             </ul>
         </div>
     </div>
 
-    <h3>Tentativa de Exploração SMB <span class="badge smb">1</span></h3>
+    <h3>SMB Exploitation Attempt <span class="badge smb">1</span></h3>
 
     <div class="incident critical">
         <div class="incident-header">
-            <span class="incident-type">Tentativa de Exploração SMB</span>
+            <span class="incident-type">SMB Exploitation Attempt</span>
             <span class="incident-time">2026-02-15 09:30:38</span>
         </div>
         
         <div class="incident-details">
             <div class="detail-item">
-                <span class="detail-label"> IP Origem:</span> 185.130.5.10
+                <span class="detail-label"> Source IP:</span> 185.130.5.10
             </div>
             <div class="detail-item">
-                <span class="detail-label"> IP Destino:</span> 10.0.0.7
+                <span class="detail-label"> Destination IP:</span> 10.0.0.7
             </div>
             <div class="detail-item">
-                <span class="detail-label"> Protocolo:</span> TCP
+                <span class="detail-label"> Protocol:</span> TCP
             </div>
             <div class="detail-item">
-                <span class="detail-label"> Descrição:</span> Tentativa de acesso à porta SMB (445) de fonte externa
+                <span class="detail-label"> Description:</span> Attempt to access SMB port (445) from external source
             </div>
             <div class="detail-item">
-                <span class="detail-label"> Detalhes:</span> Possível exploração de vulnerabilidades Windows
+                <span class="detail-label"> Details:</span> Possible exploitation of Windows vulnerabilities
             </div>
         </div>
         
         <div class="mitigation">
-            <h4> Metodologia de Mitigação</h4>
+            <h4>Mitigation Methodology</h4>
             <ul>
-                <li><strong>Prevenção:</strong> Manter sistemas Windows atualizados (patches), Desativar SMBv1 e versões vulneráveis, Restringir acesso SMB a IPs internos apenas</li>
-                <li><strong>Deteção:</strong> Monitorizar tentativas de conexão SMB externas, Detetar padrões de exploração conhecidos (EternalBlue), Analisar pacotes SMB malformados</li>
-                <li><strong>Resposta:</strong> Bloquear IP de origem imediatamente, Verificar sistemas internos na mesma sub-rede, Verificar se houve execução de código remoto</li>
+                <li><strong>Prevention:</strong> Keep Windows systems updated (patches), Disable SMBv1 and vulnerable versions, Restrict SMB access to internal IPs only</li>
+                <li><strong>Detection:</strong> Monitor external SMB connection attempts, Detect known exploit patterns (EternalBlue), Analyze malformed SMB packets</li>
+                <li><strong>Response:</strong> Block source IP immediately, Check internal systems on the same subnet, Verify if remote code execution occurred</li>
             </ul>
         </div>
     </div>
 
-    <h3>Tráfego Anómalo - NetBIOS Externo <span class="badge netbios">1</span></h3>
+    <h3>Anomalous Traffic - External NetBIOS <span class="badge netbios">1</span></h3>
 
     <div class="incident medium">
         <div class="incident-header">
-            <span class="incident-type">Tráfego Anómalo - NetBIOS Externo</span>
+            <span class="incident-type">Anomalous Traffic - External NetBIOS</span>
             <span class="incident-time">2026-02-15 09:30:46</span>
         </div>
         
         <div class="incident-details">
             <div class="detail-item">
-                <span class="detail-label"> IP Origem:</span> 45.33.22.11
+                <span class="detail-label"> Source IP:</span> 45.33.22.11
             </div>
             <div class="detail-item">
-                <span class="detail-label"> IP Destino:</span> 192.168.1.255
+                <span class="detail-label"> Destination IP:</span> 192.168.1.255
             </div>
             <div class="detail-item">
-                <span class="detail-label"> Protocolo:</span> UDP
+                <span class="detail-label"> Protocol:</span> UDP
             </div>
             <div class="detail-item">
-                <span class="detail-label"> Descrição:</span> Tráfego NetBIOS de IP externo
+                <span class="detail-label"> Description:</span> NetBIOS traffic from external IP
             </div>
             <div class="detail-item">
-                <span class="detail-label"> Detalhes:</span> Protocolo legacy exposto na borda da rede
+                <span class="detail-label"> Details:</span> Legacy protocol exposed at network edge
             </div>
         </div>
         
         <div class="mitigation">
-            <h4> Metodologia de Mitigação</h4>
+            <h4>Mitigation Methodology</h4>
             <ul>
-                <li><strong>Prevenção:</strong> Bloquear protocolos legados no perímetro, Implementar segmentação de rede (VLANs), Desativar NetBIOS em interfaces expostas</li>
-                <li><strong>Deteção:</strong> Monitorizar tráfego NetBIOS na borda da rede, Alertas para protocolos não esperados, Analisar fontes externas com destino interno</li>
-                <li><strong>Resposta:</strong> Bloquear tráfego anómalo imediatamente, Verificar comprometimento interno, Analisar se há exfiltração de dados</li>
+                <li><strong>Prevention:</strong> Block legacy protocols at perimeter, Implement network segmentation (VLANs), Disable NetBIOS on exposed interfaces</li>
+                <li><strong>Detection:</strong> Monitor NetBIOS traffic at network edge, Alerts for unexpected protocols, Analyze external sources with internal destination</li>
+                <li><strong>Response:</strong> Block anomalous traffic immediately, Check for internal compromise, Analyze for data exfiltration</li>
             </ul>
         </div>
     </div>
 
-    <h3>ICMP Sweep - Mapeamento de Rede <span class="badge icmp">1</span></h3>
+    <h3>ICMP Sweep - Network Mapping <span class="badge icmp">1</span></h3>
 
     <div class="incident high">
         <div class="incident-header">
-            <span class="incident-type">ICMP Sweep - Mapeamento de Rede</span>
+            <span class="incident-type">ICMP Sweep - Network Mapping</span>
             <span class="incident-time">2026-02-15 09:31:10</span>
         </div>
         
         <div class="incident-details">
             <div class="detail-item">
-                <span class="detail-label"> IP Origem:</span> 45.33.22.20
+                <span class="detail-label"> Source IP:</span> 45.33.22.20
             </div>
             <div class="detail-item">
-                <span class="detail-label"> IP Destino:</span> 10.0.0.1, 10.0.0.2, 10.0.0.3
+                <span class="detail-label"> Destination IP:</span> 10.0.0.1, 10.0.0.2, 10.0.0.3
             </div>
             <div class="detail-item">
-                <span class="detail-label"> Protocolo:</span> ICMP
+                <span class="detail-label"> Protocol:</span> ICMP
             </div>
             <div class="detail-item">
-                <span class="detail-label"> Descrição:</span> Varredura ICMP para mapeamento da rede
+                <span class="detail-label"> Description:</span> ICMP scan for network mapping
             </div>
             <div class="detail-item">
-                <span class="detail-label"> Detalhes:</span> Fase de reconhecimento: 3 alvos identificados
+                <span class="detail-label"> Details:</span> Reconnaissance phase: 3 targets identified
             </div>
         </div>
         
         <div class="mitigation">
-            <h4> Metodologia de Mitigação</h4>
+            <h4>Mitigation Methodology</h4>
             <ul>
-                <li><strong>Prevenção:</strong> Limitar tráfego ICMP no perímetro, Implementar rate-limiting para ICMP, Utilizar ferramentas de honeypot</li>
-                <li><strong>Deteção:</strong> Monitorizar picos de tráfego ICMP Echo Request, Detetar padrões sequenciais de IPs, Correlacionar com outras atividades suspeitas</li>
-                <li><strong>Resposta:</strong> Bloquear fonte do sweep, Documentar como fase de reconhecimento, Aumentar monitorização da rede interna</li>
+                <li><strong>Prevention:</strong> Limit ICMP traffic at perimeter, Implement rate-limiting for ICMP, Use honeypot tools</li>
+                <li><strong>Detection:</strong> Monitor ICMP Echo Request traffic spikes, Detect sequential IP patterns, Correlate with other suspicious activities</li>
+                <li><strong>Response:</strong> Block sweep source, Document as reconnaissance phase, Increase monitoring of internal network</li>
             </ul>
         </div>
     </div>
 
     <div class="footer">
-        <p>Relatório gerado pelo Firewall Log Analyzer - Projeto de Python para Cibersegurança</p>
-        <p>Este relatório contém 7 incidentes detetados durante a análise.</p>
-        <p>Este Projeto foi desenvolvido por Mariana Passos.</p>
+        <p>Report generated by Firewall Log Analyzer - Python Project for Cybersecurity</p>
+        <p>This report contains 7 incidents detected during analysis.</p>
+        <p>This project was developed by Mariana Passos.</p>
     </div>
 </body>
 </html>
