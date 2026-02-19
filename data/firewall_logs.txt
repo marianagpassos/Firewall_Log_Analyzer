@@ -1,0 +1,89 @@
+2026-02-15 09:30:00 | 192.168.1.1 | allow | tcp | 192.168.1.100:36748 | 10.0.0.7:443 | HTTPS traffic to internal server
+2026-02-15 09:30:02 | 192.168.1.1 | allow | tcp | 10.0.0.8:34040 | 10.0.0.20:443 | HTTPS traffic to internal server
+2026-02-15 09:30:04 | 192.168.1.1 | allow | tcp | 10.0.0.7:7021 | 185.130.5.10:42688 | Normal TCP traffic
+2026-02-15 09:30:06 | 192.168.1.1 | allow | tcp | 192.168.1.100:4769 | 192.168.1.200:443 | HTTPS traffic to internal server
+2026-02-15 09:30:08 | 192.168.1.1 | allow | tcp | 192.168.1.100:9422 | 203.0.113.15:443 | HTTPS traffic to internal server
+2026-02-15 09:30:10 | 192.168.1.1 | deny | tcp | 203.0.113.10:50785 | 10.0.0.5:22 | Failed password for root (SSH Brute Force)
+2026-02-15 09:30:11 | 192.168.1.1 | deny | tcp | 203.0.113.10:50786 | 10.0.0.5:22 | Failed password for admin (SSH Brute Force)
+2026-02-15 09:30:12 | 192.168.1.1 | deny | tcp | 203.0.113.10:50787 | 10.0.0.5:22 | Failed password for user (SSH Brute Force)
+2026-02-15 09:30:13 | 192.168.1.1 | deny | tcp | 203.0.113.10:50788 | 10.0.0.5:22 | Failed password for administrator (SSH Brute Force)
+2026-02-15 09:30:14 | 192.168.1.1 | deny | tcp | 203.0.113.10:50789 | 10.0.0.5:22 | Failed password for guest (SSH Brute Force)
+2026-02-15 09:30:16 | 192.168.1.1 | allow | tcp | 192.168.1.10:47406 | 192.168.1.50:35568 | Normal TCP traffic
+2026-02-15 09:30:18 | 192.168.1.1 | allow | udp | 192.168.1.10:43387 | 10.0.0.20:10831 | DNS query (normal)
+2026-02-15 09:30:20 | 192.168.1.1 | allow | udp | 10.0.0.20:2288 | 192.168.1.200:64134 | DNS query (normal)
+2026-02-15 09:30:22 | 192.168.1.1 | allow | tcp | 10.0.0.8:11012 | 192.168.1.200:38718 | Normal TCP traffic
+2026-02-15 09:30:24 | 192.168.1.1 | deny | tcp | 198.51.100.20:17885 | 10.0.0.6:79 | Port Scan detected: Sequential ports
+2026-02-15 09:30:25 | 192.168.1.1 | deny | tcp | 198.51.100.20:17886 | 10.0.0.6:80 | Port Scan detected: Sequential ports
+2026-02-15 09:30:26 | 192.168.1.1 | deny | tcp | 198.51.100.20:17887 | 10.0.0.6:81 | Port Scan detected: Sequential ports
+2026-02-15 09:30:27 | 192.168.1.1 | deny | tcp | 198.51.100.20:17888 | 10.0.0.6:22 | Port Scan detected: Sequential ports
+2026-02-15 09:30:28 | 192.168.1.1 | deny | tcp | 198.51.100.20:17889 | 10.0.0.6:443 | Port Scan detected: Sequential ports
+2026-02-15 09:30:30 | 192.168.1.1 | allow | tcp | 192.168.1.200:48679 | 10.0.0.10:65078 | Normal TCP traffic
+2026-02-15 09:30:32 | 192.168.1.1 | allow | tcp | 192.168.1.200:6120 | 192.168.1.50:80 | HTTP web traffic
+2026-02-15 09:30:34 | 192.168.1.1 | allow | tcp | 192.168.1.200:55472 | 10.0.0.10:80 | HTTP web traffic
+2026-02-15 09:30:36 | 192.168.1.1 | allow | tcp | 192.168.1.100:52085 | 10.0.0.8:80 | HTTP web traffic
+2026-02-15 09:30:38 | 192.168.1.1 | deny | tcp | 185.130.5.10:45000 | 10.0.0.7:445 | Possible SMB exploitation attempt
+2026-02-15 09:30:40 | 192.168.1.1 | allow | udp | 10.0.0.20:29376 | 192.168.1.200:30087 | DNS query (normal)
+2026-02-15 09:30:42 | 192.168.1.1 | allow | tcp | 10.0.0.5:43872 | 10.0.0.6:443 | HTTPS traffic to internal server
+2026-02-15 09:30:44 | 192.168.1.1 | allow | tcp | 10.0.0.6:4924 | 10.0.0.20:80 | HTTP web traffic
+2026-02-15 09:30:46 | 192.168.1.1 | deny | udp | 45.33.22.11:11111 | 192.168.1.255:137 | NetBIOS Name Query broadcast - Suspicious external source
+2026-02-15 09:30:48 | 192.168.1.1 | allow | tcp | 192.168.1.200:62486 | 203.0.113.10:443 | HTTPS traffic to internal server
+2026-02-15 09:30:50 | 192.168.1.1 | allow | udp | 10.0.0.6:21507 | 203.0.113.10:19773 | DNS query (normal)
+2026-02-15 09:30:52 | 192.168.1.1 | deny | tcp | 203.0.113.25:52100 | 10.0.0.8:22 | Failed password for root (SSH Brute Force)
+2026-02-15 09:30:53 | 192.168.1.1 | deny | tcp | 203.0.113.25:52101 | 10.0.0.8:22 | Failed password for admin (SSH Brute Force)
+2026-02-15 09:30:54 | 192.168.1.1 | deny | tcp | 203.0.113.25:52102 | 10.0.0.8:22 | Failed password for user (SSH Brute Force)
+2026-02-15 09:30:55 | 192.168.1.1 | deny | tcp | 203.0.113.25:52103 | 10.0.0.8:22 | Failed password for test (SSH Brute Force)
+2026-02-15 09:30:56 | 192.168.1.1 | allow | tcp | 10.0.0.8:18019 | 10.0.0.5:443 | HTTPS traffic to internal server
+2026-02-15 09:30:58 | 192.168.1.1 | allow | tcp | 10.0.0.7:4860 | 203.0.113.15:80 | HTTP web traffic
+2026-02-15 09:31:00 | 192.168.1.1 | allow | udp | 192.168.1.100:58887 | 10.0.0.5:38406 | DNS query (normal)
+2026-02-15 09:31:02 | 192.168.1.1 | allow | tcp | 10.0.0.20:10134 | 203.0.113.10:80 | HTTP web traffic
+2026-02-15 09:31:04 | 192.168.1.1 | allow | tcp | 10.0.0.6:53884 | 10.0.0.10:443 | HTTPS traffic to internal server
+2026-02-15 09:31:06 | 192.168.1.1 | allow | tcp | 10.0.0.7:20675 | 192.168.1.50:80 | HTTP web traffic
+2026-02-15 09:31:08 | 192.168.1.1 | deny | icmp | 45.33.22.20:0 | 10.0.0.1:0 | ICMP Sweep detected
+2026-02-15 09:31:09 | 192.168.1.1 | deny | icmp | 45.33.22.20:0 | 10.0.0.2:0 | ICMP Sweep detected
+2026-02-15 09:31:10 | 192.168.1.1 | deny | icmp | 45.33.22.20:0 | 10.0.0.3:0 | ICMP Sweep detected
+2026-02-15 09:31:11 | 192.168.1.1 | deny | icmp | 45.33.22.20:0 | 10.0.0.4:0 | ICMP Sweep detected
+2026-02-15 09:31:12 | 192.168.1.1 | deny | icmp | 45.33.22.20:0 | 10.0.0.5:0 | ICMP Sweep detected
+2026-02-15 09:31:13 | 192.168.1.1 | deny | icmp | 45.33.22.20:0 | 10.0.0.6:0 | ICMP Sweep detected
+2026-02-15 09:31:14 | 192.168.1.1 | deny | icmp | 45.33.22.20:0 | 10.0.0.7:0 | ICMP Sweep detected
+2026-02-15 09:31:16 | 192.168.1.1 | allow | tcp | 192.168.1.50:3252 | 203.0.113.15:80 | HTTP web traffic
+2026-02-15 09:31:18 | 192.168.1.1 | allow | tcp | 10.0.0.5:21610 | 10.0.0.20:80 | HTTP web traffic
+2026-02-15 09:31:20 | 192.168.1.1 | deny | tcp | 45.33.22.15:40000 | 192.168.1.50:23 | Telnet access attempt - Protocol insecure
+2026-02-15 09:31:22 | 192.168.1.1 | allow | tcp | 192.168.1.100:51846 | 10.0.0.20:80 | HTTP web traffic
+2026-02-15 09:31:24 | 192.168.1.1 | allow | tcp | 10.0.0.7:4861 | 203.0.113.15:80 | HTTP web traffic
+2026-02-15 09:31:26 | 192.168.1.1 | allow | udp | 192.168.1.100:58888 | 10.0.0.5:38407 | DNS query (normal)
+2026-02-15 09:31:28 | 192.168.1.1 | deny | tcp | 198.51.100.25:22100 | 10.0.0.10:21 | FTP brute force attempt detected
+2026-02-15 09:31:29 | 192.168.1.1 | deny | tcp | 198.51.100.25:22101 | 10.0.0.10:21 | FTP brute force attempt detected
+2026-02-15 09:31:30 | 192.168.1.1 | deny | tcp | 198.51.100.25:22102 | 10.0.0.10:21 | FTP brute force attempt detected
+2026-02-15 09:31:31 | 192.168.1.1 | deny | tcp | 198.51.100.25:22103 | 10.0.0.10:21 | FTP brute force attempt detected
+2026-02-15 09:31:32 | 192.168.1.1 | allow | tcp | 10.0.0.20:10135 | 203.0.113.10:80 | HTTP web traffic
+2026-02-15 09:31:34 | 192.168.1.1 | allow | tcp | 192.168.1.200:32389 | 10.0.0.5:80 | HTTP web traffic
+2026-02-15 09:31:36 | 192.168.1.1 | deny | tcp | 185.130.5.20:50000 | 10.0.0.20:3389 | RDP Connection Attempt from external source
+2026-02-15 09:31:38 | 192.168.1.1 | allow | tcp | 10.0.0.6:53885 | 10.0.0.10:443 | HTTPS traffic to internal server
+2026-02-15 09:31:40 | 192.168.1.1 | allow | tcp | 10.0.0.7:20676 | 192.168.1.50:80 | HTTP web traffic
+2026-02-15 09:31:42 | 192.168.1.1 | deny | tcp | 45.33.22.30:35000 | 192.168.1.100:1433 | SQL Server port scan detected
+2026-02-15 09:31:43 | 192.168.1.1 | deny | tcp | 45.33.22.30:35001 | 192.168.1.100:1434 | SQL Server port scan detected
+2026-02-15 09:31:44 | 192.168.1.1 | deny | tcp | 45.33.22.30:35002 | 192.168.1.100:3306 | MySQL port scan detected
+2026-02-15 09:31:45 | 192.168.1.1 | deny | tcp | 45.33.22.30:35003 | 192.168.1.100:5432 | PostgreSQL port scan detected
+2026-02-15 09:31:46 | 192.168.1.1 | allow | tcp | 192.168.1.50:3253 | 203.0.113.15:80 | HTTP web traffic
+2026-02-15 09:31:48 | 192.168.1.1 | allow | tcp | 192.168.1.200:62487 | 203.0.113.10:443 | HTTPS traffic to internal server
+2026-02-15 09:31:50 | 192.168.1.1 | deny | udp | 185.130.5.15:53 | 192.168.1.1:53 | DNS amplification attack detected
+2026-02-15 09:31:52 | 192.168.1.1 | allow | tcp | 10.0.0.5:21611 | 10.0.0.20:80 | HTTP web traffic
+2026-02-15 09:31:54 | 192.168.1.1 | allow | tcp | 192.168.1.100:51847 | 10.0.0.20:80 | HTTP web traffic
+2026-02-15 09:31:56 | 192.168.1.1 | deny | tcp | 203.0.113.30:60000 | 10.0.0.15:80 | HTTP flood attack detected - High request rate
+2026-02-15 09:31:57 | 192.168.1.1 | deny | tcp | 203.0.113.30:60001 | 10.0.0.15:80 | HTTP flood attack detected - High request rate
+2026-02-15 09:31:58 | 192.168.1.1 | deny | tcp | 203.0.113.30:60002 | 10.0.0.15:80 | HTTP flood attack detected - High request rate
+2026-02-15 09:31:59 | 192.168.1.1 | deny | tcp | 203.0.113.30:60003 | 10.0.0.15:80 | HTTP flood attack detected - High request rate
+2026-02-15 09:32:00 | 192.168.1.1 | allow | tcp | 10.0.0.8:18020 | 10.0.0.5:443 | HTTPS traffic to internal server
+2026-02-15 09:32:02 | 192.168.1.1 | allow | tcp | 10.0.0.7:4862 | 203.0.113.15:80 | HTTP web traffic
+2026-02-15 09:32:04 | 192.168.1.1 | deny | tcp | 198.51.100.30:44000 | 192.168.1.200:445 | SMB exploitation attempt - EternalBlue signature
+2026-02-15 09:32:06 | 192.168.1.1 | allow | udp | 192.168.1.100:58889 | 10.0.0.5:38408 | DNS query (normal)
+2026-02-15 09:32:08 | 192.168.1.1 | allow | tcp | 10.0.0.20:10136 | 203.0.113.10:80 | HTTP web traffic
+2026-02-15 09:32:10 | 192.168.1.1 | deny | tcp | 45.33.22.40:50000 | 10.0.0.25:8080 | Web application vulnerability scan detected
+2026-02-15 09:32:11 | 192.168.1.1 | deny | tcp | 45.33.22.40:50001 | 10.0.0.25:8443 | Web application vulnerability scan detected
+2026-02-15 09:32:12 | 192.168.1.1 | deny | tcp | 45.33.22.40:50002 | 10.0.0.25:9090 | Web application vulnerability scan detected
+2026-02-15 09:32:14 | 192.168.1.1 | allow | tcp | 10.0.0.6:53886 | 10.0.0.10:443 | HTTPS traffic to internal server
+2026-02-15 09:32:16 | 192.168.1.1 | allow | tcp | 192.168.1.200:32390 | 10.0.0.5:80 | HTTP web traffic
+2026-02-15 09:32:18 | 192.168.1.1 | deny | udp | 185.130.5.25:123 | 192.168.1.1:123 | NTP amplification attack detected
+2026-02-15 09:32:20 | 192.168.1.1 | allow | tcp | 10.0.0.7:20677 | 192.168.1.50:80 | HTTP web traffic
+2026-02-15 09:32:22 | 192.168.1.1 | allow | tcp | 192.168.1.50:3254 | 203.0.113.15:80 | HTTP web traffic
+2026-02-15 09:32:24 | 192.168.1.1 | allow | tcp | 192.168.1.200:62488 | 203.0.113.10:443 | HTTPS traffic to internal server
