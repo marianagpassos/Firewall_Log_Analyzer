@@ -40,28 +40,41 @@ Developed as a personal project to demonstrate skills in:
 Basic Commands
 Generate sample logs
 
-<pre> python main.py --generate </pre>
+ ```bash
+ python main.py --generate 
+```
 
 # Analyze logs (default file)
-<pre> python main.py --analyze </pre>
+```bash
+ python main.py --analyze 
+```
 
 # Analyze a specific file
-<pre> python main.py --analyze --file my_logs.txt </pre>
+```bash
+ python main.py --analyze --file my_logs.txt
+```
 
-# Generate 100 sample logs
-<pre> python main.py --generate --num 50 </pre>
+# Generate 50 sample logs
+```bash
+ python main.py --generate --num 50 
+```
 
 # Analyze without generating HTML
-<pre> python main.py --analyze --no-html </pre>
+```bash
+  python main.py --analyze --no-html 
+```
 
 # Log Format - The analyzer expects logs in the following format :
-<pre> YYYY-MM-DD HH:MM:SS | firewall_ip | action | protocol | src_ip:port | dst_ip:port | message </pre>
+```bash
+  YYYY-MM-DD HH:MM:SS | firewall_ip | action | protocol | src_ip:port | dst_ip:port | message 
+```
 
 -Action : `allow` or `deny` ;  Protocol : e.g., `tcp`, `udp`;  Source : `src_ip:port`;  Destination : `dst_ip:port`
 
 ## Example 
- <pre> 2024-05-27 09:30:15 | 192.168.1.1 | deny | tcp | 203.0.113.10:54321 | 10.0.0.5:22 | Password failed for root </pre>
-
+```bash
+  2024-05-27 09:30:15 | 192.168.1.1 | deny | tcp | 203.0.113.10:54321 | 10.0.0.5:22 | Password failed for root 
+```
 
 
 
