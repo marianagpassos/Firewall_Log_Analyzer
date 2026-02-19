@@ -24,7 +24,7 @@ Features
 - Visual HTML reports
 - Log generator for testing
 - Mitigation methodologies (Prevention, Detection, Response)
-- Support for historical and real-time logs
+- Support for historical log analysis (process any firewall log file)
 
 
 # Usage 💻
@@ -67,8 +67,8 @@ Criteria:
 
 Log example:
 <pre> 2024-05-27 09:30:15 | 192.168.1.1 | deny | tcp | 203.0.113.10:54321 | 10.0.0.5:22 | Failed password for admin </pre>
-<pre> 2024-05-27 09:30:16 | 192.168.1.1 | deny | tcp | 203.0.113.10:54322 | 10.0.0.5:22 | Password failed for root </pre>
-<pre> 2024-05-27 09:30:17 | 192.168.1.1 | deny | tcp | 203.0.113.10:54323 | 10.0.0.5:22 | Password failed for user </pre>
+<pre> 2024-05-27 09:30:16 | 192.168.1.1 | deny | tcp | 203.0.113.10:54322 | 10.0.0.5:22 | Failed password for root </pre>
+<pre> 2024-05-27 09:30:17 | 192.168.1.1 | deny | tcp | 203.0.113.10:54323 | 10.0.0.5:22 | Failed password for user </pre>
 
 
 ##2. Port Scanning
