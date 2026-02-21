@@ -1,12 +1,19 @@
 # Firewall_Log_Analyzer
-The Firewall Log Analyzer is a forensic analysis and security monitoring tool developed in Python. The system processes firewall logs, identifies attack patterns, and generates detailed reports with mitigation methodologies.
+The Firewall Log Analyzer is an analysis and security monitoring tool developed in Python. The system processes firewall logs, identifies attack patterns, and generates detailed reports with mitigation methodologies.
 
 Developed as a personal project to demonstrate skills in:
 
 - Python (OOP, data structures, log processing)
-- Cybersecurity (intrusion detection, forensic analysis)
-- Data visualization (interactive HTML reports)
+- Cybersecurity (intrusion detection)
+- Automated security reporting (HTML)
 - Unit testing and best practices
+
+## Research Contributions 🔬
+
+- **Detection Algorithms**: Implemented and evaluated sliding window correlation for identifying 5 attack patterns with configurable sensitivity thresholds
+- **Modular Architecture**: Designed an extensible framework where new detection rules can be added with minimal code changes
+- **Validation Methodology**: Created a synthetic log generator and comprehensive test suite to measure detection accuracy and false positive rates
+- **Knowledge Base**: Developed 45+ mitigation recommendations based on common security best practices
 
 ## Features ✨
 
@@ -93,7 +100,7 @@ Log example:
 <pre> 2024-05-27 09:30:17 | 192.168.1.1 | deny | tcp | 203.0.113.10:54323 | 10.0.0.5:22 | Failed password for user </pre>
 
 
-##2. Port Scanning
+## 2. Port Scanning
 Description: Scanning multiple ports on the same host, indicating reconnaissance.
 
 Criteria:
